@@ -15,7 +15,7 @@ const Login = () => {
     url: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleAvatar = (e) => {
     if (e.target.files[0]) {
