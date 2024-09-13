@@ -4,6 +4,29 @@
   display: flex;
   align-items: center;
   gap: 100px;
+  overflow: auto; /* Enable scrolling if content overflows */
+
+  /* For WebKit browsers (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Background of the scrollbar track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1f8ef1; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1f8ef1b0; /* Color of the scrollbar thumb on hover */
+  }
+
+  /* For Firefox */
+  scrollbar-width: thin; /* Make scrollbar thin */
+  scrollbar-color: #1f8ef1 rgba(0, 0, 0, 0.1); /* Thumb color and track color */
 
   .item {
     flex: 1;
@@ -23,9 +46,10 @@
         padding: 20px;
         border: none;
         outline: none;
-        background-color: rgba(17, 25, 40, 0.6);
+        background-color: rgba(56, 82, 131, 0.6);
         color: white;
         border-radius: 5px;
+        width: 100%; /* Ensure inputs take full width of their container */
       }
 
       label {
@@ -67,5 +91,20 @@
     height: 80%;
     width: 2px;
     background-color: #dddddd35;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto; /* Enable scrolling on smaller screens */
+
+    .item {
+      width: 100%;
+      max-width: none; /* Remove max-width limitation on smaller screens */
+    }
+
+    .separator {
+      display: none; /* Hide the separator on smaller screens */
+    }
   }
 }
